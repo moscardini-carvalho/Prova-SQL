@@ -95,53 +95,67 @@ Create:
 INSERT INTO AUTOR (nome_autor, Email_autor, ID_autor, data_nasc_autor) VALUES 
 ('João Pedro Moscardini Carvalho', 'moscardinicarvalho1234@gmail.com', 020, '2004-08-24');
 
-
-
+![CREATE](https://github.com/olie-dc/Prova-SQL/assets/162808430/d3c66e3b-d7a9-4b02-a660-6edc9dc51af9)
 
 Read:
-SELECT * FROM Membros;
+select * from AUTOR;
+
+![READ](https://github.com/olie-dc/Prova-SQL/assets/162808430/d02b3f68-0a28-4847-abdc-aa0399ffc9bc)
 
 
 Update:
-UPDATE Membros SET Email = 'victor_updated@example.com' WHERE ID_user = 21;
+update AUTOR set Email_autor = 'moscacarvalho2020@outlook.com';
+
+![UPDATE](https://github.com/olie-dc/Prova-SQL/assets/162808430/aa142404-12fb-4ed2-b1d1-d2aa4ef8026e)
 
 
 Delete:
-DELETE FROM Membros WHERE ID_user = 21;
+delete from AUTOR where ID_autor = 020;
 
-7 - Relatórios
-Seleção, Filtro e Ordenação:
-SELECT * FROM Membros;
+![DELETE](https://github.com/olie-dc/Prova-SQL/assets/162808430/e8f4393d-abbd-4b54-9bf8-a54ab7214bdc)
 
+## 7 - Relatórios Seleção, Filtro e Ordenação:
 
-SELECT * FROM Livros WHERE Genero = 'Fantasia';
+1- select nome_autor, ID_autor from AUTOR where ID_autor <= 110;
 
+![select 1](https://github.com/olie-dc/Prova-SQL/assets/162808430/fd440667-9d5b-4456-86ac-4ddce928bc45)
 
-SELECT ISBN From Livros WHERE Genero = 'Poesia';
+2- select nome_autor, ID_autor from AUTOR;
 
+![select 2](https://github.com/olie-dc/Prova-SQL/assets/162808430/fb042e72-0632-4451-9a67-96663faaa40d)
 
-SELECT Comentarios.Texto, Membros.Nome_user FROM Comentarios
-JOIN Membros ON Comentarios.ID_user = Membros.ID_user WHERE Comentarios.ID_discussoes = 1;
+3- select * from AUTOR order by data_nasc_autor asc;
 
+![select 3](https://github.com/olie-dc/Prova-SQL/assets/162808430/1f9e4d41-121a-4c6b-a524-1b85a5424a70)
 
-SELECT Clubes_de_Leitura.Nome_clube, Membros.Nome_user FROM Clubes_de_Leitura
-JOIN Membros ON Clubes_de_Leitura.ID_user = Membros.ID_user WHERE Membros.Nome_user = 'Alice';
+4- select * from EDITORA order by tel_editora;
 
+![select 4](https://github.com/olie-dc/Prova-SQL/assets/162808430/b4336be4-a735-4c78-a54b-0911b65291b4)
 
-SELECT Livros.Titulo, Discussoes.Conteudo FROM Livros
-JOIN Discussoes ON Livros.ISBN = Discussoes.ISBN;
+5- select * from EDITORA where tel_editora between 25252525 and 40404040 and ID_livro between 201 and 215;
 
+![select 5](https://github.com/olie-dc/Prova-SQL/assets/162808430/fb41653c-2e62-4291-82ac-20a341fdb5e5)
 
-SELECT Membros.Nome_user, Endereco.Cidade, Endereco.Rua FROM Membros
-JOIN Endereco ON Membros.ID_endereco = Endereco.ID_endereco WHERE Membros.Nome_user = 'Bob';
+6- select Email_editora, bairro_editora, ID_livro from EDITORA where Email_editora = 'editora11@example.com';
 
+![select 6](https://github.com/olie-dc/Prova-SQL/assets/162808430/dda7b99c-28cc-4f33-ac0b-a7bc77469608)
 
-SELECT Discussoes.Conteudo, Clubes_de_Leitura.Nome_clube FROM Discussoes
-JOIN Clubes_de_Leitura ON Discussoes.ID_clube = Clubes_de_Leitura.ID_clube;
+7- select logradouro_cliente, bairro_cliente, numero_cliente from CLIENTE;
 
+![select 7](https://github.com/olie-dc/Prova-SQL/assets/162808430/1bffcdb8-5992-4a9a-a7f5-f6c3a15fcd70)
 
-SELECT Clubes_de_Leitura.Nome_clube, COUNT(Membros.ID_user) AS Numero_de_Membros FROM Membros
-JOIN Clubes_de_Leitura ON Membros.ID_clube = Clubes_de_Leitura.ID_clube GROUP BY Clubes_de_Leitura.Nome_clube;
+8- select logradouro_cliente, bairro_cliente, numero_cliente, ID_cliente from CLIENTE where ID_cliente between 5 and 15;
+
+![select 8](https://github.com/olie-dc/Prova-SQL/assets/162808430/0622c621-c7f8-48c7-8eb2-1e6d416b06ef)
+
+9- select * from LOJA;
+
+![select 9](https://github.com/olie-dc/Prova-SQL/assets/162808430/ca748549-1b57-4d2e-b59e-80cd24eb05d8)
+
+10- select nome_loja, site_loja, tel_loja from LOJA where tel_loja between 11111111 and 17171717;
+
+![select 10](https://github.com/olie-dc/Prova-SQL/assets/162808430/ab8af07d-453f-4af7-8def-295194f1b3b4)
+
 
 
 SELECT Comentarios.Texto, Comentarios.Data_Hora, Membros.Nome_user FROM Comentarios
